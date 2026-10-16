@@ -21,8 +21,8 @@ RUN gradle bootJar -x test
 FROM eclipse-temurin:21-jre-alpine AS runtime
 
 # Phiên bản ứng dụng truyền vào lúc build (docker compose: build-arg APP_VERSION)
-ARG ___ =dev
-ENV APP_VERSION=______ \
+ARG version =dev
+ENV APP_VERSION=${secrest.APP_VERSION} \
     JAVA_TOOL_OPTIONS="-XX:MaxRAMPercentage=75"
 
 WORKDIR /app
