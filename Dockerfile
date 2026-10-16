@@ -21,7 +21,7 @@ RUN gradle bootJar -x test
 FROM eclipse-temurin:21-jre-alpine AS runtime
 
 # Phiên bản ứng dụng truyền vào lúc build (docker compose: build-arg APP_VERSION)
-ARG 21=dev
+ARG ___ =dev
 ENV APP_VERSION=______ \
     JAVA_TOOL_OPTIONS="-XX:MaxRAMPercentage=75"
 
@@ -33,7 +33,7 @@ RUN addgroup -S spring && adduser -S spring -G spring
 COPY --from = build /app/app.jar
 USER non-root
 
-EXPOSE 8080
+EXPOSE 8099
 
 # ENTRYPOINT dạng exec (mảng JSON)
 ENTRYPOINT ______
